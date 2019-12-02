@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/davidalger/ansible-role-multi-redis.svg?branch=master)](https://travis-ci.org/davidalger/ansible-role-multi-redis)
 
-Installs multiple instances of Redis 3.2 service from [IUS Community Project](http://ius.io) RPMs on RHEL / CentOS 7/8. Where archived verions of redis are required (such as Redis 3.0), the ius-archive repository may be enabled.
+Installs multiple instances of Redis 5 from [IUS Community Project](http://ius.io) RPMs on RHEL / CentOS 7 and from AppStreams on RHEL / CentOS 8. Where archived verions of redis are required (such as Redis 3.0, 3.1 or 3.2), the ius-archive repository may be enabled to facilitate installing older versions on EL 7 (versions older than 5.0 are not supported on EL 8)
 
 Currently this role installs redis pre-configured with defaults tuned for Magento. Some of these defaults may be different if this role is used to deploy redis in a non-Magento environment. See `defaults/main.yml` for details.
 
@@ -12,7 +12,7 @@ None.
 
 ## Role Variables
 
-    redis_version: 32
+    redis_version: 5
 
 On EL 7 any redis version supported by IUS RPMs may be specified: 30, 32, etc. For EL 8 only newer versions such as '5' (and later, once they are released as additional module streams) are supported.
 
@@ -21,13 +21,6 @@ See `defaults/main.yml` for complete list of variables available to customize th
 ## Dependencies
 
 * `davidalger.repo_ius`
-
-## Redis 5.0 Support
-
-This role will, when configured correctly, deploy Redis 5.0 succesfully:
-
-    redis_version: 50               # Must have two digits in version for proper systemd setup
-    redis_package_name: redis5      # There is no 'u' suffix on the package name for Redis 5
 
 ## Example Playbook
 
