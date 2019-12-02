@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/davidalger/ansible-role-multi-redis.svg?branch=master)](https://travis-ci.org/davidalger/ansible-role-multi-redis)
 
-Installs multiple instances of Redis 3.2 service from [IUS Community Project](http://ius.io) RPMs on RHEL / CentOS 7. Where archived verions of redis are required (such as Redis 3.0), the ius-archive repository may be enabled.
+Installs multiple instances of Redis 3.2 service from [IUS Community Project](http://ius.io) RPMs on RHEL / CentOS 7/8. Where archived verions of redis are required (such as Redis 3.0), the ius-archive repository may be enabled.
 
 Currently this role installs redis pre-configured with defaults tuned for Magento. Some of these defaults may be different if this role is used to deploy redis in a non-Magento environment. See `defaults/main.yml` for details.
 
@@ -14,7 +14,7 @@ None.
 
     redis_version: 32
 
-Any redis version supported by IUS RPMs may be specified: 30, 32, etc. For older versions, `redis_enablerepo: ius-archive` will also need to be specified.
+On EL 7 any redis version supported by IUS RPMs may be specified: 30, 32, etc. For EL 8 only newer versions such as '5' (and later, once they are released as additional module streams) are supported.
 
 See `defaults/main.yml` for complete list of variables available to customize the redis services.
 

@@ -1,9 +1,10 @@
 ---
-redis_version: 32
-redis_package_name: "redis{{ redis_version }}u"
+# Deafults to '32' on el7 and '5' on el8
+redis_version:
+redis_package_name:
 
-# This can be set to "ius-archive" to allow installation of older redis30u package
-redis_enablerepo: ius-archive
+# Defaults to ius-archive for el7 and '' for el8 (installed via AppStreams; IUS does not exist for el8)
+redis_enablerepo: ""
 
 redis_instance:
   name: obj

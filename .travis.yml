@@ -8,8 +8,8 @@ env:
     - ROLE_NAME: davidalger.multi_redis
 
   matrix:
+    - MOLECULE_DISTRO: centos8
     - MOLECULE_DISTRO: centos7
-      MOLECULE_DOCKER_COMMAND: /usr/lib/systemd/systemd
 
 install:
   - pip install molecule docker
