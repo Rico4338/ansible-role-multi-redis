@@ -63,6 +63,20 @@
     - reload systemd configuration
     - restart redis
 
+- name: >
+    allow redis-{{ redis_instance.name }} service to listen on TCP ports
+    {{ redis_instance.port }},
+    1{{ redis_instance.port }},
+    2{{ redis_instance.port }}
+  seport:
+    ports:
+      - "2{{ redis_instance.port }}"  # port used for clustering
+      - "1{{ redis_instance.port }}"  # port used for clustering
+      - "{{ redis_instance.port }}"
+    proto: tcp
+    setype: redis_port_t
+    state: present
+
 # append the actual service name to list which the "restart redis" handler iterates
 # this is neccessary because handlers cannot use variables in the same way tasks can
 - name: register redis-{{ redis_instance.name }} restart
