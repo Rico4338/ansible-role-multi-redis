@@ -6,14 +6,14 @@ After=network.target
 
 [Service]
 ExecStart=/usr/bin/redis-server /etc/redis/redis-{{ redis_instance.name }}.conf --daemonize no
-{%if redis_version < 32 -%}
+{%if redis_version == 30 -%}
 ExecStop=/usr/bin/redis-shutdown redis/redis-{{ redis_instance.name }}
 {% else -%}
 ExecStop=/usr/libexec/redis-shutdown redis/redis-{{ redis_instance.name }}
 {% endif %}
 User=redis
 Group=redis
-{%if redis_version >= 32 -%}
+{%if redis_version != 30 -%}
 RuntimeDirectory=redis
 RuntimeDirectoryMode=0755
 {% endif %}
