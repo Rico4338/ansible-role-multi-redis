@@ -63,6 +63,12 @@
     - reload systemd configuration
     - restart redis
 
+- name: ensure libselinux-python is present
+  package:
+    name: libselinux-python
+    state: present
+  when: ('status' in ansible_selinux) and (ansible_selinux.status != 'disabled')
+
 - name: >
     allow redis-{{ redis_instance.name }} service to listen on TCP ports
     {{ redis_instance.port }},
