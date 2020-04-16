@@ -65,9 +65,19 @@
 
 - name: ensure libselinux-python is present
   package:
-    name: libselinux-python
+    name:
+      - libselinux-python
+      - policycoreutils-python
     state: present
-  when: ('status' in ansible_selinux) and (ansible_selinux.status != 'disabled')
+  when: (ansible_distribution_major_version|int <= 7)
+
+- name: ensure python3-libselinux is present
+  package:
+    name:
+      - python3-libselinux
+      - policycoreutils-python-utils
+    state: present
+  when: (ansible_distribution_major_version|int >= 8)
 
 - name: >
     allow redis-{{ redis_instance.name }} service to listen on TCP ports
