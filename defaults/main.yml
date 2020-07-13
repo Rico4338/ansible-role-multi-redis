@@ -1,9 +1,10 @@
 ---
-# Deafults to '32' on el7 and '5' on el8
-redis_version:
+redis_version: 5
+
+# Internal dynamically set variable used to install from different package name on el7 and el8
 redis_package_name:
 
-# Defaults to ius-archive for el7 and '' for el8 (installed via AppStreams; IUS does not exist for el8)
+# Can be set to 'ius-archive' to install older versions of redis on el7 (IUS does not exist on el8)
 redis_enablerepo: ""
 
 redis_instance:
