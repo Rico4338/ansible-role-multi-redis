@@ -1,6 +1,6 @@
 # Ansible Role: Multi-Redis
 
-[![Build Status](https://travis-ci.org/davidalger/ansible-role-multi-redis.svg?branch=master)](https://travis-ci.org/davidalger/ansible-role-multi-redis)
+[![Build Status](https://travis-ci.com/davidalger/ansible-role-multi-redis.svg?branch=master)](https://travis-ci.com/davidalger/ansible-role-multi-redis)
 
 Installs multiple instances of Redis 5 from [IUS Community Project](http://ius.io) RPMs on RHEL / CentOS 7 and from AppStreams on RHEL / CentOS 8. Where archived verions of redis are required (such as Redis 3.0, 3.1 or 3.2), the ius-archive repository may be enabled to facilitate installing older versions on EL 7 (versions older than 5.0 are not supported on EL 8)
 
