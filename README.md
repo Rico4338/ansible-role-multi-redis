@@ -21,6 +21,7 @@ See `defaults/main.yml` for complete list of variables available to customize th
 ## Dependencies
 
 * `davidalger.repo_ius`
+* `davidalger.selinux`
 
 ## Example Playbook
 

@@ -5,6 +5,8 @@ dependencies:
       - ansible_distribution_major_version|int <= 7
       - use_davidalger_repo_ius | default(true)
 
+  - {role: davidalger.selinux, when: use_davidalger_selinux | default(true)}
+
 galaxy_info:
   role_name: multi_redis
   author: David Alger

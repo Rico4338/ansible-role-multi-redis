@@ -63,25 +63,7 @@
     - reload systemd configuration
     - restart redis
 
-- name: ensure libselinux-python is present
-  package:
-    name:
-      - libselinux-python
-      - policycoreutils-python
-    state: present
-  when: (ansible_distribution_major_version|int <= 7)
-
-- name: ensure python3-libselinux is present
-  package:
-    name:
-      - python3-libselinux
-      - policycoreutils-python-utils
-    state: present
-  when: (ansible_distribution_major_version|int >= 8)
-
-- name: gather facts to ensure latest selinux status is available
-  setup:
-
+# Assumes SELinux python tools pre-installed; these will be installed by the davidalger.selinux role
 - name: >
     allow redis-{{ redis_instance.name }} service to listen on TCP ports
     {{ redis_instance.port }},
