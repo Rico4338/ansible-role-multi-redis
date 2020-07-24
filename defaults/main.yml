@@ -16,6 +16,10 @@ redis_maxmemory: 1gb
 
 redis_bind_address: 127.0.0.1
 
+# When set this will be added to the base redis configuration to require auth on connections to
+# redis and may be overriden on a per-instance basis by specifying redis_instance.requirepass
+redis_requirepass:
+
 # Key/value hash of settings for /etc/redis-{{ redis_instance.name }}.conf
 # This can be overridden or passed in when specifying the role to apply
 redis_instance_config: []
